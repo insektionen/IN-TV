@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteTargetsManager">
+    <targets>
+      <target name="WSL - Debian" type="wsl">
+        <config>
+          <option name="distributionMsId" value="Debian" />
+          <option name="projectRootOnTarget" value="/mnt/c/Users/Jesper/AppData/Local/JetBrains/Toolbox/apps/Goland/ch-0/212.5457.54/jbr/bin&#10;/IN-TV" />
+        </config>
+        <ContributedStateBase type="GoLanguageRuntime">
+          <config>
+            <option name="goPath" value="warning: GOPATH set to GOROOT (/home/jesper/go) has no effect" />
+            <option name="goRoot" value="/home/jesper/go/bin/go" />
+            <option name="goVersion" value="warning: GOPATH set to GOROOT (/home/jesper/go) has no effect" />
+          </config>
+        </ContributedStateBase>
+      </target>
+    </targets>
+  </component>
+</project>
