@@ -1,10 +1,11 @@
 package v1
 
 import (
+	"net/http"
+
 	"github.com/gorilla/mux"
 	"github.com/insektionen/IN-TV/api"
 	"github.com/insektionen/IN-TV/v1/controller"
-	"net/http"
 )
 
 func RegisterRoutes(r *mux.Router) {
@@ -42,7 +43,8 @@ func RegisterRoutes(r *mux.Router) {
 	//r.HandleFunc("/presentation/file", api.NotImplemented).Methods(http.MethodPost)
 	//r.HandleFunc("/presentation/url", api.NotImplemented).Methods(http.MethodPost)
 
-	//r.HandleFunc("/sl/info", api.NotImplemented).Methods(http.MethodGet)
+	SLController := controller.NewSLController()
+	r.Handle("/sl/info", api.ControllerHandler(SLController)).Methods(http.MethodGet)
 
 	//r.HandleFunc("/spotify/playing", api.NotImplemented).Methods(http.MethodGet)
 }
