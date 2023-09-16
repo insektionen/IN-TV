@@ -7,4 +7,4 @@ mqtt:
   username: username
 paths:
   slideshow_storage: /var/lib/insektionen/in_tv/slideshows
-  album_storage: /var/lib/insektionen/in_tv/album
+  album_storage: /var/lib/insektionen/in_tv/albums

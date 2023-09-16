@@ -42,7 +42,7 @@ func setupConfig() {
 	viper.SetDefault("mqtt.client_id", "IN-TV")
 
 	viper.SetDefault("paths.slideshow_storage", "/var/lib/insektionen/in_tv/slideshows")
-	viper.SetDefault("paths.album_storage", "/var/lib/insektionen/in_tv/album")
+	viper.SetDefault("paths.album_storage", "/var/lib/insektionen/in_tv/albums")
 
 	if err := viper.ReadInConfig(); err != nil {
 		_ = viper.SafeWriteConfig()
