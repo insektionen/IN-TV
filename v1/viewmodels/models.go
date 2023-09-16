@@ -30,3 +30,13 @@ type Start struct {
 	SlideshowName string   `json:"slideshow_name"`
 	ScreenNames   []string `json:"screen_names"`
 }
+
+// The struct for the simplified json data from SL API
+type SLData struct {
+	Name              string `json:"name"`
+	Time              string `json:"time"`
+	Date              string `json:"date"`
+	Direction         string `json:"direction"`
+	RTTime            string `json:"rtTime"`
+	TimeTillDeparture int    `json:"timeTillDeparture"`
+}
