@@ -1,16 +1,19 @@
 package main
 
 import (
-	"github.com/gorilla/mux"
-	"github.com/insektionen/IN-TV/api"
-	"github.com/insektionen/IN-TV/mqtt"
-	v1 "github.com/insektionen/IN-TV/v1"
-	"github.com/rs/cors"
-	"github.com/spf13/viper"
 	"log"
 	"net/http"
 	"os"
 	"strings"
+
+	"github.com/gorilla/mux"
+	"github.com/insektionen/IN-TV/api"
+	"github.com/insektionen/IN-TV/background"
+	"github.com/insektionen/IN-TV/jobs"
+	"github.com/insektionen/IN-TV/mqtt"
+	v1 "github.com/insektionen/IN-TV/v1"
+	"github.com/rs/cors"
+	"github.com/spf13/viper"
 )
 
 var clients map[string]bool
@@ -53,6 +56,8 @@ func setupConfig() {
 func main() {
 	setupConfig()
 	mqtt.Connect()
+	
+	background.AddJob("SL-fetcher", jobs.FetchSLTimetable)
 
 	err := os.MkdirAll(viper.GetString("paths.slideshow_storage"), 0777)
 	if err != nil {
@@ -80,4 +85,7 @@ func main() {
 	if err := http.ListenAndServe(viper.GetString("http.listen"), r); err != nil {
 		log.Fatalln("Could not listen for HTTP:", err)
 	}
+
+	background.Wait()
+
 }
