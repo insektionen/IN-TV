@@ -2,3 +2,6 @@ in_tv.yaml
 in_tv.yml
 data/
 IN-TV
+
+.vscode/
+*.code-workspace
