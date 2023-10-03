@@ -18,16 +18,16 @@ type Interval int
 
 // Define constants to represent enum values
 const (
-	High   Interval = 2 * 60
-	Medium Interval = 5 * 60
-	Low    Interval = 10 * 60
+	High   Interval = 2
+	Medium Interval = 5
+	Low    Interval = 10
 	None   Interval = 0
 )
 
 type timeSpan struct {
 	startHour int
 	stopHour  int
-	interval  int
+	interval  time.Duration
 }
 
 func SetTimerInterval(now time.Time, currentSpan timeSpan, t *time.Ticker) {
@@ -35,20 +35,20 @@ func SetTimerInterval(now time.Time, currentSpan timeSpan, t *time.Ticker) {
 		if currentSpan.interval == 0 {
 			t.Stop()
 		} else {
-			t.Reset(time.Duration(currentSpan.interval))
+			t.Reset(currentSpan.interval * time.Minute)
 		}
 	}
 }
 
 func FetchSLTimetable(exit <-chan bool) {
 
-	timespan1 := timeSpan{3, 8, int(None)}
-	timespan2 := timeSpan{8, 11, int(Low)}
-	timespan3 := timeSpan{11, 18, int(High)}
-	timespan4 := timeSpan{18, 3, int(Medium)}
+	timespan1 := timeSpan{3, 8, time.Duration(None)}
+	timespan2 := timeSpan{8, 11, time.Duration(Low)}
+	timespan3 := timeSpan{11, 18, time.Duration(High)}
+	timespan4 := timeSpan{18, 3, time.Duration(Medium)}
 
 
-	t := time.NewTicker(time.Duration(Medium))
+	t := time.NewTicker(time.Duration(Medium) * time.Minute)
 
 	// requestLimit := (11-8)*(60/10) + (18-11)*(60/2) + (24+3-18)*(60/10) = 282
 	// 282 * 31 = 8742
@@ -60,7 +60,7 @@ func FetchSLTimetable(exit <-chan bool) {
 			SetTimerInterval(now, timespan2, t)
 			SetTimerInterval(now, timespan3, t)
 			SetTimerInterval(now, timespan4, t)
-			
+
 			time.Sleep(1 * time.Minute)
 		}
 	}()
