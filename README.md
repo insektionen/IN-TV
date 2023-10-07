@@ -31,15 +31,15 @@ frontend build step. This embedded code is then packaged into the final binary a
 
 
 ## Todo list
-[] Better documentation
-   [] Write more in Readme
-   [] Explain the folder structure
-   [] Explain backend, frontend
-   [] Explain difference about screen and computer app in frontend
-   [] Write documentation about the API's post, put, get methods
-   [] Explain what is new about IN-TV V2
-   [] Add idea and future work and idea list
-[] Implement SL info into a normal slide
-[] Implement SL info into a sliding banner
-[] Convert Backend service into background job
+- [] Better documentation
+   - [] Write more in Readme
+   - [] Explain the folder structure
+   - [] Explain backend, frontend
+   - [] Explain difference about screen and computer app in frontend
+   - [] Write documentation about the API's post, put, get methods
+   - [] Explain what is new about IN-TV V2
+   - [] Add idea and future work and idea list
+- [] Implement SL info into a normal slide
+- [] Implement SL info into a sliding banner
+- [] Convert Backend service into background job
 
