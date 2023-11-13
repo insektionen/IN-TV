@@ -40,7 +40,7 @@ func mqttConnectionLost(_ mqtt.Client, err error) {
 
 func mqttConnected(_ mqtt.Client) {
 	log.Println("Screen: Connected!")
-	Client.Subscribe("kistan/in_tv/#", 0, mqttMessageReceived)
+	Client.Subscribe("kistan/in_tv2/#", 0, mqttMessageReceived)
 }
 
 func mqttMessageReceived(_ mqtt.Client, msg mqtt.Message) {

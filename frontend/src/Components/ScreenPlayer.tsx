@@ -51,7 +51,7 @@ export const ScreenPlayer = (props: { name: string, previews?: boolean }) => {
 
     const handleMessage = (msg: MQTT.Message) => {
         const payload = JSON.parse(msg.payloadString);
-        if (msg.destinationName === 'kistan/in_tv/screen/' + props.name + '/slideshow') {
+        if (msg.destinationName === 'kistan/in_tv2/screen/' + props.name + '/slideshow') {
             setSlideshowName(payload.running);
         } else {
             setProgress(payload);
@@ -69,8 +69,8 @@ export const ScreenPlayer = (props: { name: string, previews?: boolean }) => {
         cli.connect({
             onSuccess: () => {
                 console.log('MQTT: Connected!');
-                cli.subscribe('kistan/in_tv/screen/' + props.name + '/#');
-                cli.subscribe('kistan/in_tv/slideshow/+/change');
+                cli.subscribe('kistan/in_tv2/screen/' + props.name + '/#');
+                cli.subscribe('kistan/in_tv2/slideshow/+/change');
             },
             onFailure: (err: MQTT.ErrorWithInvocationContext) => {
                 console.log('MQTT: Failed to connect:', err);

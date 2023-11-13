@@ -59,7 +59,7 @@ func (s *Show) Run() {
 					"next":    next,
 				}
 				data, _ := json.Marshal(message)
-				topic := fmt.Sprintf("kistan/in_tv/slideshow/%s/change", s.Slideshow.Name)
+				topic := fmt.Sprintf("kistan/in_tv2/slideshow/%s/change", s.Slideshow.Name)
 				mqtt.Client.Publish(topic, 0, false, data)
 
 				s.current = next
