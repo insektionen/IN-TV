@@ -7,6 +7,7 @@ import {Form} from 'react-bootstrap';
 
 export interface SlideEditorProps {
     slide: Slide,
+    // eslint-disable-next-line
     setSlideData: (data: Record<string, any>) => void
     setTimeout: (timeout: number) => void
 }

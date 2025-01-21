@@ -5,18 +5,18 @@ import {ApiContext} from '../App';
 import {SlideViewer} from './Slides/SlideViewer';
 import {SlideThumbnail} from './Slides/SlideThumbnail';
 
-const SlideSVG = () => {
-    return (
-        <svg width="0">
-            <filter id="blurBackground" filterUnits="userSpaceOnUse">
-                <feGaussianBlur stdDeviation="10" edgeMode="duplicate" />
-                <feComponentTransfer>
-                    <feFuncA type="discrete" tableValues="1 1" />
-                </feComponentTransfer>
-            </filter>
-        </svg>
-    );
-};
+// const SlideSVG = () => {
+//     return (
+//         <svg width="0">
+//             <filter id="blurBackground" filterUnits="userSpaceOnUse">
+//                 <feGaussianBlur stdDeviation="10" edgeMode="duplicate" />
+//                 <feComponentTransfer>
+//                     <feFuncA type="discrete" tableValues="1 1" />
+//                 </feComponentTransfer>
+//             </filter>
+//         </svg>
+//     );
+// };
 
 const SlideFrame = (props: { children: ReactChild | ReactChild[], isCurrent: boolean }) => {
     return <div style={{
