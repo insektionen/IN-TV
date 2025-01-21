@@ -9,6 +9,13 @@ export default [
     { languageOptions: { globals: globals.browser } },
     pluginJs.configs.recommended,
     ...tseslint.configs.recommended,
-    pluginReact.configs.flat.recommended,
-    [{ rules: { 'react/react-in-jsx-scope': 'off' } }],
+    {
+        ...pluginReact.configs.flat.recommended,
+        rules: { 'react/react-in-jsx-scope': 'off' },
+        settings: {
+            react: {
+                version: 'detect',
+            },
+        },
+    },
 ];
