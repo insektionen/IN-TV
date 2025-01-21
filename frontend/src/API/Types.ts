@@ -2,6 +2,7 @@ export interface Slide {
     type: string
     timeout: number
     position: number
+    // eslint-disable-next-line
     data: any
 }
 

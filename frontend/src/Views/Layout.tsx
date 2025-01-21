@@ -3,7 +3,6 @@ import {SlideshowList} from '../Components/SlideshowList';
 import {Outlet, useNavigate} from 'react-router-dom';
 import React, {useContext, useState} from 'react';
 import {ApiContext} from '../App';
-import {Slideshow} from '../API/Types';
 import {Alert, AlertContext} from '../Components/Alert';
 
 export const Layout = () => {
